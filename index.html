@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GPT Test Portfolio</title>
+    <meta
+      name="description"
+      content="A small portfolio demo project created through a GitHub workflow with ChatGPT."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="logo" href="#top">GPT Test</a>
+        <div class="nav-links">
+          <a href="#projects">Projects</a>
+          <a href="#process">Process</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero section">
+        <div class="hero-content">
+          <p class="eyebrow">Portfolio demo</p>
+          <h1>A clean mini portfolio built through a GitHub workflow.</h1>
+          <p class="hero-copy">
+            This project demonstrates a simple, professional static website that can be
+            used as a small portfolio example: readable structure, responsive design,
+            and a clear development story.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#projects">View projects</a>
+            <a class="button secondary" href="#process">See workflow</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Project summary">
+          <span class="card-label">Built with</span>
+          <strong>HTML · CSS · JavaScript</strong>
+          <p>No build step. No dependencies. Easy to review, clone, and extend.</p>
+        </aside>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Selected work</p>
+          <h2>Small projects, clear outcomes.</h2>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <h3>Portfolio Landing Page</h3>
+            <p>
+              A responsive single-page website with a polished hero section,
+              project cards, and a clear call to action.
+            </p>
+            <span>Static site</span>
+          </article>
+          <article class="project-card">
+            <h3>GitHub Workflow Test</h3>
+            <p>
+              Demonstrates branch-based work, commits, and pull request flow using
+              a connected GitHub integration.
+            </p>
+            <span>Developer workflow</span>
+          </article>
+          <article class="project-card">
+            <h3>Future Extension</h3>
+            <p>
+              Ready for additional features like project filtering, dark mode,
+              deployment, or a small contact form.
+            </p>
+            <span>Roadmap ready</span>
+          </article>
+        </div>
+      </section>
+
+      <section id="process" class="section split-section">
+        <div>
+          <p class="eyebrow">Process</p>
+          <h2>Designed to be simple, inspectable, and portfolio-friendly.</h2>
+        </div>
+        <ol class="steps">
+          <li>Create a dedicated branch.</li>
+          <li>Add a small but complete static project.</li>
+          <li>Open a pull request for review.</li>
+          <li>Iterate with improvements and QA notes.</li>
+        </ol>
+      </section>
+
+      <section id="contact" class="section contact-card">
+        <p class="eyebrow">Contact</p>
+        <h2>Want to extend this demo?</h2>
+        <p>
+          The next version can include deployment to GitHub Pages, a project filter,
+          or a more personal portfolio structure.
+        </p>
+        <button id="ideaButton" class="button primary" type="button">
+          Suggest an improvement
+        </button>
+        <p id="ideaOutput" class="idea-output" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>GPT Test Portfolio · Built as a small GitHub demo project.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
