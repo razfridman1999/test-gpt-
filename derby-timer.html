@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050505">
+<title>עד הדרבי</title>
+<style>
+:root{--red:#ff3131;--white:#fff;--muted:#aaa;--panel:#141414;--line:#2a2a2a}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#050505;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+body{min-height:100svh;display:flex;align-items:center;justify-content:center;padding:24px;background:radial-gradient(circle at 50% 10%,rgba(180,0,0,.28),transparent 38%),#050505}
+main{width:min(760px,100%);text-align:center}
+.pill{display:inline-block;padding:8px 14px;border:1px solid #4a3030;border-radius:999px;color:#ddd;background:rgba(255,255,255,.03);font-size:14px}
+h1{margin:22px 0 8px;font-size:clamp(42px,10vw,84px);line-height:1;letter-spacing:-2px}h1 span{color:var(--red)}
+.sub{color:#b8b8b8;font-size:clamp(16px,4vw,22px);margin-bottom:26px}
+.hero{border:1px solid #8d2525;border-radius:26px;padding:24px 14px;background:linear-gradient(145deg,rgba(255,49,49,.13),rgba(255,255,255,.02));box-shadow:0 20px 70px rgba(0,0,0,.45)}
+.label{color:#ddd;font-size:15px;margin-bottom:10px}
+#total{direction:ltr;font-variant-numeric:tabular-nums;font-weight:900;font-size:clamp(58px,14vw,116px);line-height:1;text-shadow:0 0 24px rgba(255,49,49,.25)}
+.word{color:var(--red);font-weight:800;font-size:20px;margin-top:8px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:17px 6px}
+.num{direction:ltr;font-variant-numeric:tabular-nums;font-size:clamp(30px,7vw,52px);font-weight:850}.cap{margin-top:5px;color:#aaa;font-size:13px}
+.footer{margin-top:22px;color:#8f8f8f;font-size:14px}
+.finished{color:var(--red)!important;font-size:clamp(42px,10vw,80px)!important}
+@media(max-width:560px){.grid{grid-template-columns:repeat(2,1fr)}body{padding:18px}.hero{padding:22px 10px}}
+</style>
+</head>
+<body>
+<main>
+  <div class="pill">בלומפילד • 14.09.2026 • 20:30</div>
+  <h1>עד <span>הדרבי</span></h1>
+  <div class="sub">מכבי תל אביב – הפועל תל אביב</div>
+  <section class="hero">
+    <div class="label">נשארו בדיוק</div>
+    <div id="total">טוען…</div>
+    <div class="word">שניות לדרבי</div>
+  </section>
+  <section class="grid">
+    <div class="box"><div class="num" id="days">--</div><div class="cap">ימים</div></div>
+    <div class="box"><div class="num" id="hours">--</div><div class="cap">שעות</div></div>
+    <div class="box"><div class="num" id="minutes">--</div><div class="cap">דקות</div></div>
+    <div class="box"><div class="num" id="seconds">--</div><div class="cap">שניות</div></div>
+  </section>
+  <div class="footer">יאללה הפועל ❤️</div>
+</main>
+<script>
+(() => {
+  const target = Date.parse('2026-09-14T20:30:00+03:00');
+  const total = document.getElementById('total');
+  const days = document.getElementById('days');
+  const hours = document.getElementById('hours');
+  const minutes = document.getElementById('minutes');
+  const seconds = document.getElementById('seconds');
+  const pad = n => String(n).padStart(2,'0');
+  function tick(){
+    const ms = target - Date.now();
+    if(ms <= 0){
+      total.textContent = 'הדרבי התחיל!';
+      total.classList.add('finished');
+      days.textContent = hours.textContent = minutes.textContent = seconds.textContent = '00';
+      return;
+    }
+    const t = Math.ceil(ms/1000);
+    days.textContent = Math.floor(t/86400);
+    hours.textContent = pad(Math.floor((t%86400)/3600));
+    minutes.textContent = pad(Math.floor((t%3600)/60));
+    seconds.textContent = pad(t%60);
+    total.textContent = t.toLocaleString('en-US');
+  }
+  tick();
+  setInterval(tick,250);
+})();
+</script>
+</body>
+</html>
